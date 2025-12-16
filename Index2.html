@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css" media="all">
+    *{
+      margin:0;
+      padding:0;
+    }
+    body{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .container{
+      width:350px;
+      border-radius:20px;
+    box-shadow:0px 0px 3px lightgray;
+    padding:7px;
+    }
+  input{
+    width:220px;
+    height:40px;
+    border:1px solid black;
+    outline:none;
+    font-size:18px;
+    padding-left:5px;
+    border-radius:20px;
+    margin-left:20px;
+    margin-top:19px;
+  }
+  button{
+    width:90px;
+    height:40px;
+    border-radius:10px;
+    background:#1e90ff;
+    color:white;
+    border:none;
+    font-size:16px;
+  }
+  .result{
+    width:300px;
+    height:300px;
+    box-shadow:0px 0px 5px lightgray;
+    border-radius:10px;
+    margin-left:25px;
+    margin-top:19px;
+    margin-bottom:15px;
+    display:flex;
+      justify-content:center;
+      align-items:center;
+  }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <input type="text" placeholder="Search Jobs">
+  <button>Search</button>
+  <div class="result"></div>
+</div> 
+
+<script type="text/javascript" charset="utf-8">
+  let input = document.querySelector("input");
+  let button = document.querySelector("button");
+  let result = document.querySelector(".result");
+  
+  const jobs = [
+  {
+    title: "Frontend Developer",
+    company: "TechSoft",
+    location: "Remote",
+    type: "Full Time"
+  },
+  {
+    title: "Backend Developer",
+    company: "CodeHub",
+    location: "Lahore",
+    type: "Part Time"
+  },
+  {
+    title: "Web Designer",
+    company: "DesignPro",
+    location: "Karachi",
+    type: "Remote"
+  },
+  {
+    title: "JavaScript Intern",
+    company: "StartupX",
+    location: "Islamabad",
+    type: "Internship"
+  },
+  {
+    title: "React Developer",
+    company: "DevSolutions",
+    location: "Remote",
+    type: "Full Time"
+  }
+];
+
+
+  button.addEventListener("click",()=>{
+    let value = input.value
+    result.textContent = ""
+  if(value !== ""){
+    for(var i=0; i < jobs.length; i++){
+    let jobContent = jobs[i]
+  if(jobs[i].title.toLowerCase().includes(value.toLowerCase())){
+    
+let br = document.createElement("br")
+    result.innerHTML += `${jobs[i].title} <br> ${jobs[i].company}  <br> ${jobs[i].location} <br> ${jobs[i].type}`
+   
+  
+  }
+    }
+  }
+  }) 
+</script>
+</body>
+
+</html>
